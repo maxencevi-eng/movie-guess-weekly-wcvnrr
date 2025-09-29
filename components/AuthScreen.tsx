@@ -55,7 +55,7 @@ export default function AuthScreen() {
     >
       <ScrollView contentContainerStyle={styles.container}>
         <View style={styles.header}>
-          <Text style={styles.title}>🎬 Quiz Cinéma</Text>
+          <Text style={styles.title}>🎬 Concours Ciné</Text>
           <Text style={styles.subtitle}>
             Devinez le film à partir d'indices révélés tout au long de la semaine !
           </Text>

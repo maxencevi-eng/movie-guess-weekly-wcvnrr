@@ -37,7 +37,7 @@ export default function LoginScreen() {
   return (
     <ScrollView style={commonStyles.wrapper} contentContainerStyle={styles.container}>
       <View style={styles.content}>
-        <Text style={commonStyles.title}>🎬 Quiz Cinéma</Text>
+        <Text style={commonStyles.title}>🎬 Concours Ciné</Text>
         <Text style={styles.subtitle}>Bon retour ! Connectez-vous pour continuer à jouer.</Text>
         
         <View style={styles.form}>

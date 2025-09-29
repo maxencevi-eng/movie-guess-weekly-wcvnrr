@@ -93,7 +93,7 @@ export default function GameScreen() {
   if (!gameState.gameStarted) {
     return (
       <View style={commonStyles.container}>
-        <Text style={styles.title}>🎬 Quiz Cinéma</Text>
+        <Text style={styles.title}>🎬 Concours Ciné</Text>
         <Text style={styles.subtitle}>
           Le jeu n'a pas encore commencé. Revenez bientôt !
         </Text>
@@ -104,7 +104,7 @@ export default function GameScreen() {
   if (!currentMovie) {
     return (
       <View style={commonStyles.container}>
-        <Text style={styles.title}>🎬 Quiz Cinéma</Text>
+        <Text style={styles.title}>🎬 Concours Ciné</Text>
         <Text style={styles.subtitle}>
           Aucun film actif cette semaine. Revenez plus tard !
         </Text>

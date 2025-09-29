@@ -74,7 +74,7 @@ export default function UploadMovieScreen() {
     <ScrollView style={commonStyles.wrapper} contentContainerStyle={styles.container}>
       <View style={styles.header}>
         <Text style={commonStyles.title}>📤 Télécharger un Film</Text>
-        <Text style={styles.subtitle}>Ajouter un nouveau film à la base de données du quiz</Text>
+        <Text style={styles.subtitle}>Ajouter un nouveau film à la base de données du concours</Text>
       </View>
 
       <View style={styles.form}>

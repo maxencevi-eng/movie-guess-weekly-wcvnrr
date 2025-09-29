@@ -93,8 +93,8 @@ export const useNotifications = () => {
 
     await Notifications.scheduleNotificationAsync({
       content: {
-        title: "🎬 New Movie Quiz Started!",
-        body: "A new movie is ready to be guessed. Check out the first clue!",
+        title: "🎬 Nouveau Concours Ciné Commencé!",
+        body: "Un nouveau film est prêt à être deviné. Découvrez le premier indice!",
         data: { type: 'gameStart' },
       },
       trigger: null, // Send immediately
@@ -106,8 +106,8 @@ export const useNotifications = () => {
 
     await Notifications.scheduleNotificationAsync({
       content: {
-        title: "📸 New Clue Available!",
-        body: "A new image clue has been released for this week's movie!",
+        title: "📸 Nouvel Indice Disponible!",
+        body: "Un nouvel indice image a été publié pour le film de cette semaine!",
         data: { type: 'newImage' },
       },
       trigger: null,
@@ -119,8 +119,8 @@ export const useNotifications = () => {
 
     await Notifications.scheduleNotificationAsync({
       content: {
-        title: "🏆 Leaderboard Updated!",
-        body: "Check your ranking in this week's movie quiz!",
+        title: "🏆 Classement Mis à Jour!",
+        body: "Vérifiez votre classement dans le concours ciné de cette semaine!",
         data: { type: 'leaderboard' },
       },
       trigger: null,

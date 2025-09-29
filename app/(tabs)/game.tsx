@@ -45,7 +45,7 @@ export default function GameScreen() {
       <View style={[commonStyles.container, styles.noGameContainer]}>
         <Text style={commonStyles.title}>🎬 Aucun Jeu Actif</Text>
         <Text style={commonStyles.text}>
-          Il n'y a pas de quiz cinéma actif en ce moment. Revenez bientôt !
+          Il n'y a pas de concours ciné actif en ce moment. Revenez bientôt !
         </Text>
       </View>
     );
@@ -57,7 +57,7 @@ export default function GameScreen() {
   return (
     <ScrollView style={commonStyles.wrapper} contentContainerStyle={styles.container}>
       <View style={styles.header}>
-        <Text style={commonStyles.title}>🎬 Quiz Cinéma</Text>
+        <Text style={commonStyles.title}>🎬 Concours Ciné</Text>
         <Text style={styles.welcomeText}>Bon retour, {user?.username} !</Text>
       </View>
 

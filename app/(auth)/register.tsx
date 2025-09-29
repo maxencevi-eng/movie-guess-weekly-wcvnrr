@@ -49,7 +49,7 @@ export default function RegisterScreen() {
   return (
     <ScrollView style={commonStyles.wrapper} contentContainerStyle={styles.container}>
       <View style={styles.content}>
-        <Text style={commonStyles.title}>🎬 Rejoindre le Quiz Cinéma</Text>
+        <Text style={commonStyles.title}>🎬 Rejoindre le Concours Ciné</Text>
         <Text style={styles.subtitle}>Créez votre compte pour commencer à deviner les films !</Text>
         
         <View style={styles.form}>

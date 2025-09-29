@@ -16,7 +16,7 @@ export default function AdminDashboard() {
   const handleStartGame = async (movieId: string) => {
     Alert.alert(
       'Démarrer un Nouveau Jeu',
-      'Êtes-vous sûr de vouloir démarrer un nouveau quiz cinéma ? Cela réinitialisera le jeu actuel.',
+      'Êtes-vous sûr de vouloir démarrer un nouveau concours ciné ? Cela réinitialisera le jeu actuel.',
       [
         { text: 'Annuler', style: 'cancel' },
         {
@@ -43,7 +43,7 @@ export default function AdminDashboard() {
     <ScrollView style={commonStyles.wrapper} contentContainerStyle={styles.container}>
       <View style={styles.header}>
         <Text style={commonStyles.title}>🎛️ Tableau de Bord Admin</Text>
-        <Text style={styles.subtitle}>Gérer les quiz cinéma et les paramètres du jeu</Text>
+        <Text style={styles.subtitle}>Gérer les concours ciné et les paramètres du jeu</Text>
       </View>
 
       <View style={styles.currentGameSection}>
