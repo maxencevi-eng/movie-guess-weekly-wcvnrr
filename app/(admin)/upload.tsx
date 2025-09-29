@@ -15,7 +15,7 @@ export default function UploadMovieScreen() {
 
   const pickImage = async () => {
     if (images.length >= 3) {
-      Alert.alert('Limit Reached', 'You can only upload 3 images per movie.');
+      Alert.alert('Limite Atteinte', 'Vous ne pouvez télécharger que 3 images par film.');
       return;
     }
 
@@ -37,17 +37,17 @@ export default function UploadMovieScreen() {
 
   const handleSubmit = async () => {
     if (!title.trim()) {
-      Alert.alert('Error', 'Please enter a movie title');
+      Alert.alert('Erreur', 'Veuillez entrer un titre de film');
       return;
     }
 
     if (!week.trim() || isNaN(Number(week))) {
-      Alert.alert('Error', 'Please enter a valid week number');
+      Alert.alert('Erreur', 'Veuillez entrer un numéro de semaine valide');
       return;
     }
 
     if (images.length === 0) {
-      Alert.alert('Error', 'Please upload at least one image');
+      Alert.alert('Erreur', 'Veuillez télécharger au moins une image');
       return;
     }
 
@@ -58,12 +58,12 @@ export default function UploadMovieScreen() {
       await new Promise(resolve => setTimeout(resolve, 2000));
       
       Alert.alert(
-        'Success',
-        'Movie uploaded successfully! It will be available for selection in the admin dashboard.',
+        'Succès',
+        'Film téléchargé avec succès ! Il sera disponible pour sélection dans le tableau de bord admin.',
         [{ text: 'OK', onPress: () => router.back() }]
       );
     } catch (error) {
-      Alert.alert('Error', 'Failed to upload movie. Please try again.');
+      Alert.alert('Erreur', 'Échec du téléchargement du film. Veuillez réessayer.');
       console.log('Upload error:', error);
     } finally {
       setLoading(false);
@@ -73,16 +73,16 @@ export default function UploadMovieScreen() {
   return (
     <ScrollView style={commonStyles.wrapper} contentContainerStyle={styles.container}>
       <View style={styles.header}>
-        <Text style={commonStyles.title}>📤 Upload Movie</Text>
-        <Text style={styles.subtitle}>Add a new movie to the quiz database</Text>
+        <Text style={commonStyles.title}>📤 Télécharger un Film</Text>
+        <Text style={styles.subtitle}>Ajouter un nouveau film à la base de données du quiz</Text>
       </View>
 
       <View style={styles.form}>
         <View style={styles.inputGroup}>
-          <Text style={styles.label}>Movie Title</Text>
+          <Text style={styles.label}>Titre du Film</Text>
           <TextInput
             style={styles.input}
-            placeholder="Enter movie title..."
+            placeholder="Entrez le titre du film..."
             placeholderTextColor={colors.grey}
             value={title}
             onChangeText={setTitle}
@@ -91,10 +91,10 @@ export default function UploadMovieScreen() {
         </View>
 
         <View style={styles.inputGroup}>
-          <Text style={styles.label}>Week Number</Text>
+          <Text style={styles.label}>Numéro de Semaine</Text>
           <TextInput
             style={styles.input}
-            placeholder="Enter week number..."
+            placeholder="Entrez le numéro de semaine..."
             placeholderTextColor={colors.grey}
             value={week}
             onChangeText={setWeek}
@@ -105,7 +105,7 @@ export default function UploadMovieScreen() {
         <View style={styles.inputGroup}>
           <Text style={styles.label}>Images ({images.length}/3)</Text>
           <Text style={styles.helperText}>
-            Upload up to 3 images that will be revealed as clues
+            Téléchargez jusqu'à 3 images qui seront révélées comme indices
           </Text>
           
           <Button
@@ -114,7 +114,7 @@ export default function UploadMovieScreen() {
             variant="outline"
             style={styles.imageButton}
           >
-            {images.length === 0 ? 'Add First Image' : `Add Image ${images.length + 1}`}
+            {images.length === 0 ? 'Ajouter la Première Image' : `Ajouter l'Image ${images.length + 1}`}
           </Button>
 
           {images.length > 0 && (
@@ -122,14 +122,14 @@ export default function UploadMovieScreen() {
               {images.map((uri, index) => (
                 <View key={index} style={styles.imagePreview}>
                   <Image source={{ uri }} style={styles.image} contentFit="cover" />
-                  <Text style={styles.imageLabel}>Clue {index + 1}</Text>
+                  <Text style={styles.imageLabel}>Indice {index + 1}</Text>
                   <Button
                     onPress={() => removeImage(index)}
                     size="small"
                     variant="outline"
                     style={styles.removeButton}
                   >
-                    Remove
+                    Supprimer
                   </Button>
                 </View>
               ))}
@@ -145,7 +145,7 @@ export default function UploadMovieScreen() {
           disabled={loading}
           style={styles.submitButton}
         >
-          Upload Movie
+          Télécharger le Film
         </Button>
         
         <Button
@@ -153,7 +153,7 @@ export default function UploadMovieScreen() {
           variant="outline"
           style={styles.cancelButton}
         >
-          Cancel
+          Annuler
         </Button>
       </View>
     </ScrollView>

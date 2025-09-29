@@ -35,7 +35,7 @@ export default function GameScreen() {
   if (loading) {
     return (
       <View style={[commonStyles.container, styles.loadingContainer]}>
-        <Text style={commonStyles.text}>Loading game...</Text>
+        <Text style={commonStyles.text}>Chargement du jeu...</Text>
       </View>
     );
   }
@@ -43,9 +43,9 @@ export default function GameScreen() {
   if (!gameState.gameStarted || !gameState.currentMovie) {
     return (
       <View style={[commonStyles.container, styles.noGameContainer]}>
-        <Text style={commonStyles.title}>🎬 No Active Game</Text>
+        <Text style={commonStyles.title}>🎬 Aucun Jeu Actif</Text>
         <Text style={commonStyles.text}>
-          There's no active movie quiz right now. Check back soon!
+          Il n'y a pas de quiz cinéma actif en ce moment. Revenez bientôt !
         </Text>
       </View>
     );
@@ -57,8 +57,8 @@ export default function GameScreen() {
   return (
     <ScrollView style={commonStyles.wrapper} contentContainerStyle={styles.container}>
       <View style={styles.header}>
-        <Text style={commonStyles.title}>🎬 Movie Quiz</Text>
-        <Text style={styles.welcomeText}>Welcome back, {user?.username}!</Text>
+        <Text style={commonStyles.title}>🎬 Quiz Cinéma</Text>
+        <Text style={styles.welcomeText}>Bon retour, {user?.username} !</Text>
       </View>
 
       <GameCard
@@ -78,18 +78,18 @@ export default function GameScreen() {
       <GuessInput onSubmit={handleGuessSubmit} />
 
       <View style={styles.infoSection}>
-        <Text style={styles.infoTitle}>How to Play:</Text>
+        <Text style={styles.infoTitle}>Comment Jouer :</Text>
         <Text style={styles.infoText}>
-          • Guess the movie title from the image clues
+          • Devinez le titre du film à partir des indices en image
         </Text>
         <Text style={styles.infoText}>
-          • New clues released Monday, Thursday, Friday at 8 PM
+          • Nouveaux indices publiés lundi, jeudi, vendredi à 20h
         </Text>
         <Text style={styles.infoText}>
-          • Earlier guesses earn more points (6→3→1)
+          • Les réponses plus précoces rapportent plus de points (6→3→1)
         </Text>
         <Text style={styles.infoText}>
-          • Wrong guesses earn 0 points
+          • Les mauvaises réponses rapportent 0 point
         </Text>
       </View>
     </ScrollView>

@@ -27,7 +27,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="game"
         options={{
-          title: 'Game',
+          title: 'Jeu',
           headerShown: false,
           tabBarIcon: ({ color, size }) => (
             <IconSymbol name="play.circle" size={size} color={color} />
@@ -37,7 +37,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="leaderboard"
         options={{
-          title: 'Leaderboard',
+          title: 'Classement',
           headerShown: false,
           tabBarIcon: ({ color, size }) => (
             <IconSymbol name="trophy" size={size} color={color} />
@@ -47,7 +47,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="profile"
         options={{
-          title: 'Profile',
+          title: 'Profil',
           headerShown: false,
           tabBarIcon: ({ color, size }) => (
             <IconSymbol name="person.circle" size={size} color={color} />

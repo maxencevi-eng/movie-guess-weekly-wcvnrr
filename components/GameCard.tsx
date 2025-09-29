@@ -22,9 +22,9 @@ export const GameCard: React.FC<GameCardProps> = ({
   return (
     <Pressable style={styles.container} onPress={onPress}>
       <View style={styles.header}>
-        <Text style={styles.weekText}>Week {week}</Text>
+        <Text style={styles.weekText}>Semaine {week}</Text>
         <Text style={styles.imageCounter}>
-          Image {imageIndex + 1} of {totalImages}
+          Image {imageIndex + 1} sur {totalImages}
         </Text>
       </View>
       
@@ -39,9 +39,9 @@ export const GameCard: React.FC<GameCardProps> = ({
       
       <View style={styles.pointsInfo}>
         <Text style={styles.pointsText}>
-          {imageIndex === 0 && "6 points for correct guess"}
-          {imageIndex === 1 && "3 points for correct guess"}
-          {imageIndex === 2 && "1 point for correct guess"}
+          {imageIndex === 0 && "6 points pour une bonne réponse"}
+          {imageIndex === 1 && "3 points pour une bonne réponse"}
+          {imageIndex === 2 && "1 point pour une bonne réponse"}
         </Text>
       </View>
     </Pressable>

@@ -24,7 +24,7 @@ export default function AuthScreen() {
 
   const handleSubmit = async () => {
     if (!email || !password || (!isLogin && !username)) {
-      Alert.alert('Error', 'Please fill in all fields');
+      Alert.alert('Erreur', 'Veuillez remplir tous les champs');
       return;
     }
 
@@ -38,11 +38,11 @@ export default function AuthScreen() {
       }
 
       if (!result.success) {
-        Alert.alert('Error', result.error || 'Authentication failed');
+        Alert.alert('Erreur', result.error || 'Échec de l\'authentification');
       }
     } catch (error) {
       console.log('Auth error:', error);
-      Alert.alert('Error', 'Something went wrong');
+      Alert.alert('Erreur', 'Une erreur s\'est produite');
     } finally {
       setLoading(false);
     }
@@ -55,21 +55,21 @@ export default function AuthScreen() {
     >
       <ScrollView contentContainerStyle={styles.container}>
         <View style={styles.header}>
-          <Text style={styles.title}>🎬 Movie Quiz</Text>
+          <Text style={styles.title}>🎬 Quiz Cinéma</Text>
           <Text style={styles.subtitle}>
-            Guess the movie from clues released throughout the week!
+            Devinez le film à partir d'indices révélés tout au long de la semaine !
           </Text>
         </View>
 
         <View style={styles.form}>
           <Text style={styles.formTitle}>
-            {isLogin ? 'Welcome Back' : 'Create Account'}
+            {isLogin ? 'Bon Retour' : 'Créer un Compte'}
           </Text>
 
           {!isLogin && (
             <TextInput
               style={styles.input}
-              placeholder="Username"
+              placeholder="Nom d'utilisateur"
               placeholderTextColor={colors.grey}
               value={username}
               onChangeText={setUsername}
@@ -89,7 +89,7 @@ export default function AuthScreen() {
 
           <TextInput
             style={styles.input}
-            placeholder="Password"
+            placeholder="Mot de passe"
             placeholderTextColor={colors.grey}
             value={password}
             onChangeText={setPassword}
@@ -101,7 +101,7 @@ export default function AuthScreen() {
             loading={loading}
             style={styles.submitButton}
           >
-            {isLogin ? 'Sign In' : 'Sign Up'}
+            {isLogin ? 'Se Connecter' : 'S\'Inscrire'}
           </Button>
 
           <Button
@@ -109,12 +109,12 @@ export default function AuthScreen() {
             variant="secondary"
             style={styles.switchButton}
           >
-            {isLogin ? 'Need an account? Sign Up' : 'Already have an account? Sign In'}
+            {isLogin ? 'Besoin d\'un compte ? S\'inscrire' : 'Déjà un compte ? Se connecter'}
           </Button>
 
           {/* Admin login hint */}
           <Text style={styles.hint}>
-            Admin login: admin@moviequiz.com / admin
+            Connexion admin : admin@moviequiz.com / admin
           </Text>
         </View>
       </ScrollView>

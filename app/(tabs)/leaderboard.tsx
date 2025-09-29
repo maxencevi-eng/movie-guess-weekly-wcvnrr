@@ -12,9 +12,9 @@ export default function LeaderboardScreen() {
   return (
     <ScrollView style={commonStyles.wrapper} contentContainerStyle={styles.container}>
       <View style={styles.header}>
-        <Text style={commonStyles.title}>🏆 Leaderboard</Text>
+        <Text style={commonStyles.title}>🏆 Classement</Text>
         <Text style={styles.subtitle}>
-          Rankings updated every Sunday at 12 AM
+          Classements mis à jour chaque dimanche à minuit
         </Text>
       </View>
 
@@ -29,11 +29,11 @@ export default function LeaderboardScreen() {
       </View>
 
       <View style={styles.infoSection}>
-        <Text style={styles.infoTitle}>Scoring System:</Text>
-        <Text style={styles.infoText}>🥇 6 points - Correct guess after 1st image</Text>
-        <Text style={styles.infoText}>🥈 3 points - Correct guess after 2nd image</Text>
-        <Text style={styles.infoText}>🥉 1 point - Correct guess after 3rd image</Text>
-        <Text style={styles.infoText}>❌ 0 points - Incorrect guess</Text>
+        <Text style={styles.infoTitle}>Système de Points :</Text>
+        <Text style={styles.infoText}>🥇 6 points - Bonne réponse après la 1ère image</Text>
+        <Text style={styles.infoText}>🥈 3 points - Bonne réponse après la 2ème image</Text>
+        <Text style={styles.infoText}>🥉 1 point - Bonne réponse après la 3ème image</Text>
+        <Text style={styles.infoText}>❌ 0 point - Mauvaise réponse</Text>
       </View>
     </ScrollView>
   );

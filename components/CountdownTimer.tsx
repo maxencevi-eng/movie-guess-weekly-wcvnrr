@@ -43,17 +43,17 @@ export const CountdownTimer: React.FC<CountdownTimerProps> = ({
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Next clue in:</Text>
+      <Text style={styles.title}>Prochain indice dans :</Text>
       <View style={styles.timeContainer}>
         {timeLeft.days > 0 && (
           <View style={styles.timeUnit}>
             <Text style={styles.timeValue}>{timeLeft.days}</Text>
-            <Text style={styles.timeLabel}>days</Text>
+            <Text style={styles.timeLabel}>jours</Text>
           </View>
         )}
         <View style={styles.timeUnit}>
           <Text style={styles.timeValue}>{timeLeft.hours.toString().padStart(2, '0')}</Text>
-          <Text style={styles.timeLabel}>hours</Text>
+          <Text style={styles.timeLabel}>heures</Text>
         </View>
         <View style={styles.timeUnit}>
           <Text style={styles.timeValue}>{timeLeft.minutes.toString().padStart(2, '0')}</Text>

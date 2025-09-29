@@ -14,12 +14,12 @@ export default function ProfileScreen() {
 
   const handleLogout = () => {
     Alert.alert(
-      'Sign Out',
-      'Are you sure you want to sign out?',
+      'Se Déconnecter',
+      'Êtes-vous sûr de vouloir vous déconnecter ?',
       [
-        { text: 'Cancel', style: 'cancel' },
+        { text: 'Annuler', style: 'cancel' },
         { 
-          text: 'Sign Out', 
+          text: 'Se Déconnecter', 
           style: 'destructive',
           onPress: async () => {
             await logout();
@@ -40,7 +40,7 @@ export default function ProfileScreen() {
   if (!user) {
     return (
       <View style={commonStyles.container}>
-        <Text style={commonStyles.text}>Please sign in to view your profile.</Text>
+        <Text style={commonStyles.text}>Veuillez vous connecter pour voir votre profil.</Text>
       </View>
     );
   }
@@ -63,15 +63,15 @@ export default function ProfileScreen() {
       </View>
 
       <View style={styles.statsSection}>
-        <Text style={styles.sectionTitle}>Your Stats</Text>
+        <Text style={styles.sectionTitle}>Vos Statistiques</Text>
         <View style={styles.statsGrid}>
           <View style={styles.statCard}>
             <Text style={styles.statValue}>{user.totalPoints}</Text>
-            <Text style={styles.statLabel}>Total Points</Text>
+            <Text style={styles.statLabel}>Points Total</Text>
           </View>
           <View style={styles.statCard}>
             <Text style={styles.statValue}>{user.weeklyPoints}</Text>
-            <Text style={styles.statLabel}>This Week</Text>
+            <Text style={styles.statLabel}>Cette Semaine</Text>
           </View>
         </View>
       </View>
@@ -81,8 +81,8 @@ export default function ProfileScreen() {
         
         <View style={styles.notificationItem}>
           <View style={styles.notificationInfo}>
-            <Text style={styles.notificationTitle}>Game Start</Text>
-            <Text style={styles.notificationDesc}>When a new movie quiz begins</Text>
+            <Text style={styles.notificationTitle}>Début du Jeu</Text>
+            <Text style={styles.notificationDesc}>Quand un nouveau quiz commence</Text>
           </View>
           <Switch
             value={settings.gameStart}
@@ -94,8 +94,8 @@ export default function ProfileScreen() {
 
         <View style={styles.notificationItem}>
           <View style={styles.notificationInfo}>
-            <Text style={styles.notificationTitle}>New Images</Text>
-            <Text style={styles.notificationDesc}>When new clues are released</Text>
+            <Text style={styles.notificationTitle}>Nouvelles Images</Text>
+            <Text style={styles.notificationDesc}>Quand de nouveaux indices sont publiés</Text>
           </View>
           <Switch
             value={settings.newImage}
@@ -107,8 +107,8 @@ export default function ProfileScreen() {
 
         <View style={styles.notificationItem}>
           <View style={styles.notificationInfo}>
-            <Text style={styles.notificationTitle}>Leaderboard</Text>
-            <Text style={styles.notificationDesc}>Weekly ranking updates</Text>
+            <Text style={styles.notificationTitle}>Classement</Text>
+            <Text style={styles.notificationDesc}>Mises à jour hebdomadaires du classement</Text>
           </View>
           <Switch
             value={settings.leaderboardUpdate}
@@ -125,7 +125,7 @@ export default function ProfileScreen() {
             onPress={() => router.push('/(admin)/dashboard')}
             style={styles.adminButton}
           >
-            Admin Dashboard
+            Tableau de Bord Admin
           </Button>
         </View>
       )}
@@ -136,7 +136,7 @@ export default function ProfileScreen() {
           variant="outline"
           style={styles.logoutButton}
         >
-          Sign Out
+          Se Déconnecter
         </Button>
       </View>
     </ScrollView>

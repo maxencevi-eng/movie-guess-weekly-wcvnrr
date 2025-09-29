@@ -31,12 +31,12 @@ export default function GameScreen() {
 
   const handleSubmitGuess = async () => {
     if (!guess.trim()) {
-      Alert.alert('Error', 'Please enter your guess');
+      Alert.alert('Erreur', 'Veuillez entrer votre réponse');
       return;
     }
 
     if (!user || !currentMovie) {
-      Alert.alert('Error', 'Something went wrong');
+      Alert.alert('Erreur', 'Une erreur s\'est produite');
       return;
     }
 
@@ -46,20 +46,20 @@ export default function GameScreen() {
       
       if (result.success) {
         const message = result.isCorrect 
-          ? `Correct! You earned ${result.points} points!`
-          : 'Incorrect guess. Better luck next time!';
+          ? `Correct ! Vous avez gagné ${result.points} points !`
+          : 'Mauvaise réponse. Bonne chance pour la prochaine fois !';
         
         Alert.alert(
-          result.isCorrect ? '🎉 Correct!' : '❌ Incorrect',
+          result.isCorrect ? '🎉 Correct !' : '❌ Incorrect',
           message
         );
         setGuess('');
       } else {
-        Alert.alert('Error', result.error || 'Failed to submit guess');
+        Alert.alert('Erreur', result.error || 'Échec de l\'envoi de la réponse');
       }
     } catch (error) {
       console.log('Submit guess error:', error);
-      Alert.alert('Error', 'Something went wrong');
+      Alert.alert('Erreur', 'Une erreur s\'est produite');
     } finally {
       setSubmitting(false);
     }
@@ -81,21 +81,21 @@ export default function GameScreen() {
     const next = new Date(gameState.nextImageRelease);
     const diff = next.getTime() - now.getTime();
     
-    if (diff <= 0) return 'Available now!';
+    if (diff <= 0) return 'Disponible maintenant !';
     
     const days = Math.floor(diff / (1000 * 60 * 60 * 24));
     const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     
-    if (days > 0) return `${days}d ${hours}h`;
+    if (days > 0) return `${days}j ${hours}h`;
     return `${hours}h`;
   };
 
   if (!gameState.gameStarted) {
     return (
       <View style={commonStyles.container}>
-        <Text style={styles.title}>🎬 Movie Quiz</Text>
+        <Text style={styles.title}>🎬 Quiz Cinéma</Text>
         <Text style={styles.subtitle}>
-          The game hasn't started yet. Check back soon!
+          Le jeu n'a pas encore commencé. Revenez bientôt !
         </Text>
       </View>
     );
@@ -104,9 +104,9 @@ export default function GameScreen() {
   if (!currentMovie) {
     return (
       <View style={commonStyles.container}>
-        <Text style={styles.title}>🎬 Movie Quiz</Text>
+        <Text style={styles.title}>🎬 Quiz Cinéma</Text>
         <Text style={styles.subtitle}>
-          No active movie this week. Check back later!
+          Aucun film actif cette semaine. Revenez plus tard !
         </Text>
       </View>
     );
@@ -115,23 +115,23 @@ export default function GameScreen() {
   return (
     <ScrollView style={commonStyles.wrapper} contentContainerStyle={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.title}>Week {gameState.currentWeek}</Text>
-        <Text style={styles.subtitle}>Guess the movie from the clues!</Text>
+        <Text style={styles.title}>Semaine {gameState.currentWeek}</Text>
+        <Text style={styles.subtitle}>Devinez le film à partir des indices !</Text>
       </View>
 
       <View style={styles.gameInfo}>
         <View style={styles.pointsInfo}>
           <Text style={styles.pointsText}>
-            Current points: {getPointsForCurrentImage()} pts
+            Points actuels : {getPointsForCurrentImage()} pts
           </Text>
           <Text style={styles.imageInfo}>
-            Image {gameState.currentImageIndex + 1} of 3
+            Image {gameState.currentImageIndex + 1} sur 3
           </Text>
         </View>
 
         {gameState.currentImageIndex < 2 && (
           <Text style={styles.nextImageText}>
-            Next image: {formatTimeUntilNext()}
+            Prochaine image : {formatTimeUntilNext()}
           </Text>
         )}
       </View>
@@ -143,33 +143,33 @@ export default function GameScreen() {
           contentFit="cover"
         />
         <View style={styles.imageOverlay}>
-          <Text style={styles.imageLabel}>Clue #{gameState.currentImageIndex + 1}</Text>
+          <Text style={styles.imageLabel}>Indice #{gameState.currentImageIndex + 1}</Text>
         </View>
       </View>
 
       {hasGuessed ? (
         <View style={styles.guessResult}>
           <Text style={styles.guessResultTitle}>
-            {userGuess.isCorrect ? '🎉 Correct!' : '❌ Incorrect'}
+            {userGuess.isCorrect ? '🎉 Correct !' : '❌ Incorrect'}
           </Text>
           <Text style={styles.guessResultText}>
-            Your guess: "{userGuess.guess}"
+            Votre réponse : "{userGuess.guess}"
           </Text>
           <Text style={styles.guessResultPoints}>
-            Points earned: {userGuess.points}
+            Points gagnés : {userGuess.points}
           </Text>
           {userGuess.isCorrect && (
             <Text style={styles.correctAnswer}>
-              The movie was: {currentMovie.title}
+              Le film était : {currentMovie.title}
             </Text>
           )}
         </View>
       ) : (
         <View style={styles.guessForm}>
-          <Text style={styles.guessLabel}>What movie is this?</Text>
+          <Text style={styles.guessLabel}>Quel est ce film ?</Text>
           <TextInput
             style={styles.guessInput}
-            placeholder="Enter movie title..."
+            placeholder="Entrez le titre du film..."
             placeholderTextColor={colors.grey}
             value={guess}
             onChangeText={setGuess}
@@ -180,27 +180,27 @@ export default function GameScreen() {
             loading={submitting}
             style={styles.submitButton}
           >
-            Submit Guess ({getPointsForCurrentImage()} pts)
+            Envoyer la réponse ({getPointsForCurrentImage()} pts)
           </Button>
         </View>
       )}
 
       <View style={styles.rules}>
-        <Text style={styles.rulesTitle}>How it works:</Text>
+        <Text style={styles.rulesTitle}>Comment ça marche :</Text>
         <Text style={styles.rulesText}>
-          • 3 images released: Monday 8pm, Thursday 8pm, Friday 8pm
+          • 3 images publiées : Lundi 20h, Jeudi 20h, Vendredi 20h
         </Text>
         <Text style={styles.rulesText}>
-          • Guess after 1st image: 6 points
+          • Réponse après la 1ère image : 6 points
         </Text>
         <Text style={styles.rulesText}>
-          • Guess after 2nd image: 3 points
+          • Réponse après la 2ème image : 3 points
         </Text>
         <Text style={styles.rulesText}>
-          • Guess after 3rd image: 1 point
+          • Réponse après la 3ème image : 1 point
         </Text>
         <Text style={styles.rulesText}>
-          • Wrong guess: 0 points
+          • Mauvaise réponse : 0 point
         </Text>
       </View>
     </ScrollView>

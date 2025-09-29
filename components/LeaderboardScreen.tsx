@@ -29,10 +29,10 @@ export default function LeaderboardScreen() {
         <View style={styles.userInfo}>
           <Text style={[styles.username, isCurrentUser && styles.currentUserText]}>
             {item.username}
-            {isCurrentUser && ' (You)'}
+            {isCurrentUser && ' (Vous)'}
           </Text>
           <Text style={styles.weeklyPoints}>
-            This week: {item.weeklyPoints} pts
+            Cette semaine : {item.weeklyPoints} pts
           </Text>
         </View>
         
@@ -60,28 +60,28 @@ export default function LeaderboardScreen() {
   return (
     <ScrollView style={commonStyles.wrapper} contentContainerStyle={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.title}>🏆 Leaderboard</Text>
+        <Text style={styles.title}>🏆 Classement</Text>
         <Text style={styles.subtitle}>
-          Updated every Sunday at 12am
+          Mis à jour chaque dimanche à minuit
         </Text>
       </View>
 
       {currentUserRank && (
         <View style={styles.userRankCard}>
-          <Text style={styles.userRankTitle}>Your Ranking</Text>
+          <Text style={styles.userRankTitle}>Votre Classement</Text>
           <View style={styles.userRankInfo}>
             <Text style={styles.userRankText}>
               #{currentUserRank.rank} • {currentUserRank.totalPoints} points
             </Text>
             <Text style={styles.userWeeklyPoints}>
-              This week: {currentUserRank.weeklyPoints} pts
+              Cette semaine : {currentUserRank.weeklyPoints} pts
             </Text>
           </View>
         </View>
       )}
 
       <View style={styles.leaderboardContainer}>
-        <Text style={styles.leaderboardTitle}>All Players</Text>
+        <Text style={styles.leaderboardTitle}>Tous les Joueurs</Text>
         <FlatList
           data={mockLeaderboard}
           renderItem={renderLeaderboardItem}
@@ -92,24 +92,24 @@ export default function LeaderboardScreen() {
       </View>
 
       <View style={styles.gameInfo}>
-        <Text style={styles.gameInfoTitle}>Game Progress</Text>
+        <Text style={styles.gameInfoTitle}>Progression du Jeu</Text>
         <View style={styles.progressBar}>
           <View style={[styles.progressFill, { width: '10%' }]} />
         </View>
-        <Text style={styles.progressText}>Week 1 of 10</Text>
+        <Text style={styles.progressText}>Semaine 1 sur 10</Text>
         
         <View style={styles.gameStats}>
           <View style={styles.statItem}>
             <Text style={styles.statValue}>10</Text>
-            <Text style={styles.statLabel}>Total Weeks</Text>
+            <Text style={styles.statLabel}>Semaines Total</Text>
           </View>
           <View style={styles.statItem}>
             <Text style={styles.statValue}>1</Text>
-            <Text style={styles.statLabel}>Current Week</Text>
+            <Text style={styles.statLabel}>Semaine Actuelle</Text>
           </View>
           <View style={styles.statItem}>
             <Text style={styles.statValue}>9</Text>
-            <Text style={styles.statLabel}>Weeks Left</Text>
+            <Text style={styles.statLabel}>Semaines Restantes</Text>
           </View>
         </View>
       </View>

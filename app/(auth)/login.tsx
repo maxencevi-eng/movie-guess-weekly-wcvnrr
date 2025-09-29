@@ -14,7 +14,7 @@ export default function LoginScreen() {
 
   const handleLogin = async () => {
     if (!username.trim() || !password.trim()) {
-      Alert.alert('Error', 'Please fill in all fields');
+      Alert.alert('Erreur', 'Veuillez remplir tous les champs');
       return;
     }
 
@@ -24,10 +24,10 @@ export default function LoginScreen() {
       if (success) {
         router.replace('/(tabs)/game');
       } else {
-        Alert.alert('Error', 'Invalid username or password');
+        Alert.alert('Erreur', 'Nom d\'utilisateur ou mot de passe invalide');
       }
     } catch (error) {
-      Alert.alert('Error', 'Login failed. Please try again.');
+      Alert.alert('Erreur', 'Échec de la connexion. Veuillez réessayer.');
       console.log('Login error:', error);
     } finally {
       setLoading(false);
@@ -37,13 +37,13 @@ export default function LoginScreen() {
   return (
     <ScrollView style={commonStyles.wrapper} contentContainerStyle={styles.container}>
       <View style={styles.content}>
-        <Text style={commonStyles.title}>🎬 Movie Quiz</Text>
-        <Text style={styles.subtitle}>Welcome back! Sign in to continue playing.</Text>
+        <Text style={commonStyles.title}>🎬 Quiz Cinéma</Text>
+        <Text style={styles.subtitle}>Bon retour ! Connectez-vous pour continuer à jouer.</Text>
         
         <View style={styles.form}>
           <TextInput
             style={styles.input}
-            placeholder="Username"
+            placeholder="Nom d'utilisateur"
             placeholderTextColor={colors.grey}
             value={username}
             onChangeText={setUsername}
@@ -53,7 +53,7 @@ export default function LoginScreen() {
           
           <TextInput
             style={styles.input}
-            placeholder="Password"
+            placeholder="Mot de passe"
             placeholderTextColor={colors.grey}
             value={password}
             onChangeText={setPassword}
@@ -68,7 +68,7 @@ export default function LoginScreen() {
             disabled={loading}
             style={styles.loginButton}
           >
-            Sign In
+            Se Connecter
           </Button>
           
           <Button
@@ -76,15 +76,15 @@ export default function LoginScreen() {
             variant="outline"
             style={styles.registerButton}
           >
-            Create Account
+            Créer un Compte
           </Button>
         </View>
         
         <View style={styles.demoSection}>
-          <Text style={styles.demoTitle}>Demo Accounts:</Text>
-          <Text style={styles.demoText}>Username: MovieBuff (Player)</Text>
-          <Text style={styles.demoText}>Username: Admin (Admin)</Text>
-          <Text style={styles.demoText}>Password: any</Text>
+          <Text style={styles.demoTitle}>Comptes de Démonstration :</Text>
+          <Text style={styles.demoText}>Nom d'utilisateur : MovieBuff (Joueur)</Text>
+          <Text style={styles.demoText}>Nom d'utilisateur : Admin (Admin)</Text>
+          <Text style={styles.demoText}>Mot de passe : n'importe lequel</Text>
         </View>
       </View>
     </ScrollView>

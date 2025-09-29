@@ -35,7 +35,7 @@ export const LeaderboardCard: React.FC<LeaderboardCardProps> = ({
           <Text style={[styles.username, isCurrentUser && styles.currentUserText]}>
             {item.username}
           </Text>
-          <Text style={styles.rankText}>Rank #{item.rank}</Text>
+          <Text style={styles.rankText}>Rang #{item.rank}</Text>
         </View>
       </View>
       
@@ -43,9 +43,9 @@ export const LeaderboardCard: React.FC<LeaderboardCardProps> = ({
         <Text style={[styles.totalPoints, isCurrentUser && styles.currentUserText]}>
           {item.totalPoints}
         </Text>
-        <Text style={styles.pointsLabel}>Total Points</Text>
+        <Text style={styles.pointsLabel}>Points Total</Text>
         <Text style={styles.weeklyPoints}>
-          +{item.weeklyPoints} this week
+          +{item.weeklyPoints} cette semaine
         </Text>
       </View>
     </View>

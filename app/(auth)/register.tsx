@@ -16,17 +16,17 @@ export default function RegisterScreen() {
 
   const handleRegister = async () => {
     if (!username.trim() || !email.trim() || !password.trim() || !confirmPassword.trim()) {
-      Alert.alert('Error', 'Please fill in all fields');
+      Alert.alert('Erreur', 'Veuillez remplir tous les champs');
       return;
     }
 
     if (password !== confirmPassword) {
-      Alert.alert('Error', 'Passwords do not match');
+      Alert.alert('Erreur', 'Les mots de passe ne correspondent pas');
       return;
     }
 
     if (password.length < 6) {
-      Alert.alert('Error', 'Password must be at least 6 characters');
+      Alert.alert('Erreur', 'Le mot de passe doit contenir au moins 6 caractères');
       return;
     }
 
@@ -36,10 +36,10 @@ export default function RegisterScreen() {
       if (success) {
         router.replace('/(tabs)/game');
       } else {
-        Alert.alert('Error', 'Registration failed. Please try again.');
+        Alert.alert('Erreur', 'Échec de l\'inscription. Veuillez réessayer.');
       }
     } catch (error) {
-      Alert.alert('Error', 'Registration failed. Please try again.');
+      Alert.alert('Erreur', 'Échec de l\'inscription. Veuillez réessayer.');
       console.log('Registration error:', error);
     } finally {
       setLoading(false);
@@ -49,13 +49,13 @@ export default function RegisterScreen() {
   return (
     <ScrollView style={commonStyles.wrapper} contentContainerStyle={styles.container}>
       <View style={styles.content}>
-        <Text style={commonStyles.title}>🎬 Join Movie Quiz</Text>
-        <Text style={styles.subtitle}>Create your account to start guessing movies!</Text>
+        <Text style={commonStyles.title}>🎬 Rejoindre le Quiz Cinéma</Text>
+        <Text style={styles.subtitle}>Créez votre compte pour commencer à deviner les films !</Text>
         
         <View style={styles.form}>
           <TextInput
             style={styles.input}
-            placeholder="Username"
+            placeholder="Nom d'utilisateur"
             placeholderTextColor={colors.grey}
             value={username}
             onChangeText={setUsername}
@@ -76,7 +76,7 @@ export default function RegisterScreen() {
           
           <TextInput
             style={styles.input}
-            placeholder="Password"
+            placeholder="Mot de passe"
             placeholderTextColor={colors.grey}
             value={password}
             onChangeText={setPassword}
@@ -87,7 +87,7 @@ export default function RegisterScreen() {
           
           <TextInput
             style={styles.input}
-            placeholder="Confirm Password"
+            placeholder="Confirmer le mot de passe"
             placeholderTextColor={colors.grey}
             value={confirmPassword}
             onChangeText={setConfirmPassword}
@@ -102,7 +102,7 @@ export default function RegisterScreen() {
             disabled={loading}
             style={styles.registerButton}
           >
-            Create Account
+            Créer un Compte
           </Button>
           
           <Button
@@ -110,7 +110,7 @@ export default function RegisterScreen() {
             variant="outline"
             style={styles.backButton}
           >
-            Back to Sign In
+            Retour à la Connexion
           </Button>
         </View>
       </View>

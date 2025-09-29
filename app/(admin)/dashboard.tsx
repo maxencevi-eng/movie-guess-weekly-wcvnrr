@@ -15,20 +15,20 @@ export default function AdminDashboard() {
 
   const handleStartGame = async (movieId: string) => {
     Alert.alert(
-      'Start New Game',
-      'Are you sure you want to start a new movie quiz? This will reset the current game.',
+      'Démarrer un Nouveau Jeu',
+      'Êtes-vous sûr de vouloir démarrer un nouveau quiz cinéma ? Cela réinitialisera le jeu actuel.',
       [
-        { text: 'Cancel', style: 'cancel' },
+        { text: 'Annuler', style: 'cancel' },
         {
-          text: 'Start Game',
+          text: 'Démarrer le Jeu',
           onPress: async () => {
             setLoading(true);
             try {
               await startNewGame(movieId);
               await scheduleGameStartNotification();
-              Alert.alert('Success', 'New game started successfully!');
+              Alert.alert('Succès', 'Nouveau jeu démarré avec succès !');
             } catch (error) {
-              Alert.alert('Error', 'Failed to start new game');
+              Alert.alert('Erreur', 'Échec du démarrage du nouveau jeu');
               console.log('Start game error:', error);
             } finally {
               setLoading(false);
@@ -42,43 +42,43 @@ export default function AdminDashboard() {
   return (
     <ScrollView style={commonStyles.wrapper} contentContainerStyle={styles.container}>
       <View style={styles.header}>
-        <Text style={commonStyles.title}>🎛️ Admin Dashboard</Text>
-        <Text style={styles.subtitle}>Manage movie quizzes and game settings</Text>
+        <Text style={commonStyles.title}>🎛️ Tableau de Bord Admin</Text>
+        <Text style={styles.subtitle}>Gérer les quiz cinéma et les paramètres du jeu</Text>
       </View>
 
       <View style={styles.currentGameSection}>
-        <Text style={styles.sectionTitle}>Current Game Status</Text>
+        <Text style={styles.sectionTitle}>État du Jeu Actuel</Text>
         <View style={styles.statusCard}>
-          <Text style={styles.statusLabel}>Week:</Text>
+          <Text style={styles.statusLabel}>Semaine :</Text>
           <Text style={styles.statusValue}>{gameState.currentWeek}</Text>
         </View>
         <View style={styles.statusCard}>
-          <Text style={styles.statusLabel}>Movie:</Text>
+          <Text style={styles.statusLabel}>Film :</Text>
           <Text style={styles.statusValue}>
-            {gameState.currentMovie?.title || 'No active movie'}
+            {gameState.currentMovie?.title || 'Aucun film actif'}
           </Text>
         </View>
         <View style={styles.statusCard}>
-          <Text style={styles.statusLabel}>Current Image:</Text>
+          <Text style={styles.statusLabel}>Image Actuelle :</Text>
           <Text style={styles.statusValue}>
-            {gameState.currentImageIndex + 1} of {gameState.currentMovie?.images.length || 0}
+            {gameState.currentImageIndex + 1} sur {gameState.currentMovie?.images.length || 0}
           </Text>
         </View>
         <View style={styles.statusCard}>
-          <Text style={styles.statusLabel}>Game Active:</Text>
+          <Text style={styles.statusLabel}>Jeu Actif :</Text>
           <Text style={[styles.statusValue, { color: gameState.gameStarted ? colors.accent : colors.grey }]}>
-            {gameState.gameStarted ? 'Yes' : 'No'}
+            {gameState.gameStarted ? 'Oui' : 'Non'}
           </Text>
         </View>
       </View>
 
       <View style={styles.moviesSection}>
-        <Text style={styles.sectionTitle}>Available Movies</Text>
+        <Text style={styles.sectionTitle}>Films Disponibles</Text>
         {mockMovies.map((movie) => (
           <View key={movie.id} style={styles.movieCard}>
             <View style={styles.movieInfo}>
               <Text style={styles.movieTitle}>{movie.title}</Text>
-              <Text style={styles.movieWeek}>Week {movie.week}</Text>
+              <Text style={styles.movieWeek}>Semaine {movie.week}</Text>
               <Text style={styles.movieImages}>{movie.images.length} images</Text>
             </View>
             <Button
@@ -90,7 +90,7 @@ export default function AdminDashboard() {
                 gameState.currentMovie?.id === movie.id && styles.activeButton
               ]}
             >
-              {gameState.currentMovie?.id === movie.id ? 'Active' : 'Start'}
+              {gameState.currentMovie?.id === movie.id ? 'Actif' : 'Démarrer'}
             </Button>
           </View>
         ))}
@@ -101,7 +101,7 @@ export default function AdminDashboard() {
           onPress={() => router.push('/(admin)/upload')}
           style={styles.uploadButton}
         >
-          Upload New Movie
+          Télécharger un Nouveau Film
         </Button>
         
         <Button
@@ -109,7 +109,7 @@ export default function AdminDashboard() {
           variant="outline"
           style={styles.backButton}
         >
-          Back to Profile
+          Retour au Profil
         </Button>
       </View>
     </ScrollView>

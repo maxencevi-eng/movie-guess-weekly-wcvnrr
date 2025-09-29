@@ -15,7 +15,7 @@ export const GuessInput: React.FC<GuessInputProps> = ({ onSubmit, disabled }) =>
 
   const handleSubmit = async () => {
     if (!guess.trim()) {
-      Alert.alert('Error', 'Please enter a movie title');
+      Alert.alert('Erreur', 'Veuillez entrer un titre de film');
       return;
     }
 
@@ -25,19 +25,19 @@ export const GuessInput: React.FC<GuessInputProps> = ({ onSubmit, disabled }) =>
       
       if (result.success) {
         Alert.alert(
-          '🎉 Correct!', 
-          `Great job! You earned ${result.points} points!`,
+          '🎉 Correct !', 
+          `Excellent travail ! Vous avez gagné ${result.points} points !`,
           [{ text: 'OK', onPress: () => setGuess('') }]
         );
       } else {
         Alert.alert(
           '❌ Incorrect', 
-          'That\'s not the right movie. Try again!',
+          'Ce n\'est pas le bon film. Essayez encore !',
           [{ text: 'OK', onPress: () => setGuess('') }]
         );
       }
     } catch (error) {
-      Alert.alert('Error', 'Failed to submit guess. Please try again.');
+      Alert.alert('Erreur', 'Échec de l\'envoi de la réponse. Veuillez réessayer.');
       console.log('Guess submission error:', error);
     } finally {
       setLoading(false);
@@ -48,7 +48,7 @@ export const GuessInput: React.FC<GuessInputProps> = ({ onSubmit, disabled }) =>
     <View style={styles.container}>
       <TextInput
         style={styles.input}
-        placeholder="Enter movie title..."
+        placeholder="Entrez le titre du film..."
         placeholderTextColor={colors.grey}
         value={guess}
         onChangeText={setGuess}
@@ -62,7 +62,7 @@ export const GuessInput: React.FC<GuessInputProps> = ({ onSubmit, disabled }) =>
         loading={loading}
         style={styles.button}
       >
-        Submit Guess
+        Envoyer la Réponse
       </Button>
     </View>
   );
